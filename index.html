@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <link rel="icon" type="image/png" href="./imagens/strawberry.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surpresa - 3 Meses</title>
+    <title>Bem-vinda, Morango!</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
@@ -18,51 +19,9 @@
             height: 100vh;
             background-color: rgb(241, 186, 205);
             margin: 0;
+            text-align: center;
             opacity: 0;
             animation: fadeIn 1s forwards;
-        }
-
-        .login-container {
-            text-align: center;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            transform: scale(0.9);
-            animation: popIn 0.6s forwards ease-out;
-        }
-
-        .input-container {
-            position: relative;
-            width: 100%;
-            margin: 10px 0;
-        }
-
-        .input-container input {
-            width: 100%;
-            padding: 10px 40px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        .input-container .icon {
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: gray;
-        }
-
-        .input-container .toggle-password {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: gray;
         }
 
         .background {
@@ -78,6 +37,27 @@
             z-index: -1;
         }
 
+        .welcome-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transform: scale(0.9);
+            animation: popIn 0.6s forwards ease-out;
+        }
+
+        h1 {
+            color: rgb(255, 190, 219);
+            animation: floatAnimation 2s infinite alternate ease-in-out;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
         button {
             font-family: "Jersey 15", serif;
             font-weight: 400;
@@ -90,30 +70,12 @@
             cursor: pointer;
             border-radius: 5px;
             width: 100%;
-            margin-top: 10px;
             transition: transform 0.2s ease, background-color 0.3s ease;
         }
 
         button:hover {
             background-color: rgb(221, 166, 185);
             transform: scale(1.05);
-        }
-
-        .error-message {
-            font-family: "Jersey 15", serif;
-            font-weight: 400;
-            font-style: normal;
-            color: red;
-            margin-top: 10px;
-            display: none;
-        }
-
-        img {
-            width: 100px;
-            height: auto;
-            display: block;
-            margin: 10px auto;
-            animation: floatAnimation 2s infinite alternate ease-in-out;
         }
 
         /* Animações */
@@ -149,51 +111,15 @@
 </head>
 <body>
     <div class="background"></div>
-    <div class="login-container">
-        <h1 style="color: rgb(255, 190, 219)">Bem-vindo(a)</h1>
-        <img src="./imagens/chat.png" alt="Ícone de chat">
-        <img src="./imagens/morango.png" alt="Ícone de morango">
-
-        <div class="input-container">
-            <i class="fas fa-user icon"></i>
-            <input type="text" id="username" placeholder="Usuário">
-        </div>
-
-        <div class="input-container">
-            <i class="fas fa-lock icon"></i>
-            <input type="password" id="password" placeholder="Senha">
-            <i class="fas fa-eye toggle-password" onclick="togglePassword()"></i>
-        </div>
-
-        <button onclick="checkLogin()">Entrar</button>
-        <p class="error-message" id="error-message">Usuário ou senha incorretos!</p>
+    <div class="welcome-container">
+        <h1>Bem-vinda, Morango! 🍓</h1>
+        <p>Agora que você chegou até aqui, é hora de testar seus conhecimentos em um quiz especial. Responda corretamente para avançar para a próxima etapa! 🌟</p>
+        <button onclick="startQuiz()">Iniciar Quiz</button>
     </div>
 
     <script>
-        function checkLogin() {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-
-            if (username === "Morango" && password === "euteamo123") {
-                window.location.href = "surpresa.html";
-            } else {
-                document.getElementById("error-message").style.display = "block";
-            }
-        }
-
-        function togglePassword() {
-            const passwordInput = document.getElementById("password");
-            const eyeIcon = document.querySelector(".toggle-password");
-
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                eyeIcon.classList.remove("fa-eye");
-                eyeIcon.classList.add("fa-eye-slash");
-            } else {
-                passwordInput.type = "password";
-                eyeIcon.classList.remove("fa-eye-slash");
-                eyeIcon.classList.add("fa-eye");
-            }
+        function startQuiz() {
+            window.location.href = "Pergunta-1.html"; // Altere para o link correto do quiz
         }
     </script>
 </body>
