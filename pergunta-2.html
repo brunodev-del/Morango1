@@ -6,14 +6,29 @@
     <title>Quiz do Amor</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+
+        /* Animação de Fade In */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Animação de Flutuação */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Animação de Pulso */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
 
         body {
-          background-image: url('./imagens/background.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed
             font-family: "Jersey 15", serif;
             font-weight: 400;
             font-style: normal;
@@ -25,22 +40,42 @@
             margin: 0;
             text-align: center;
         }
+        
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-image: url('./imagens/background.jpeg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+
         .quiz-container {
             background: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             width: 300px;
+            animation: fadeIn 1.5s ease-in-out;
         }
+
         h1 {
             color: rgb(255, 190, 219);
             font-size: 22px;
+            animation: float 3s infinite ease-in-out;
         }
+
         .question {
             font-size: 18px;
             color: #333;
             margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
         }
+
         .options button {
             font-family: "Jersey 15", serif;
             font-weight: 400;
@@ -55,30 +90,38 @@
             width: 100%;
             margin: 5px 0;
             transition: 0.3s;
+            animation: fadeIn 2.5s ease-in-out;
         }
+
         .options button:hover {
             background-color: rgb(241, 186, 205);
             color: white;
+            animation: pulse 0.5s ease-in-out;
         }
+
         .feedback {
             display: none;
             font-size: 16px;
             margin-top: 10px;
             padding: 10px;
             border-radius: 5px;
+            animation: fadeIn 1s ease-in-out;
         }
+
         .correct {
             background-color: rgb(144, 238, 144);
             color: green;
         }
+
         .incorrect {
             background-color: rgb(255, 182, 182);
             color: red;
         }
+
         .next-button {
-          font-family: "Jersey 15", serif;
-  font-weight: 400;
-  font-style: normal;
+            font-family: "Jersey 15", serif;
+            font-weight: 400;
+            font-style: normal;
             display: none;
             background-color: rgb(241, 186, 205);
             color: white;
@@ -89,15 +132,19 @@
             border-radius: 5px;
             width: 100%;
             margin-top: 10px;
+            animation: fadeIn 1.5s ease-in-out;
         }
+
         .next-button:hover {
             background-color: rgb(221, 166, 185);
+            animation: pulse 0.5s ease-in-out;
         }
     </style>
 </head>
 <body>
+    <div class="background"></div>
     <div class="quiz-container">
-        <h1>Quiz do Idoso🐼❤️‍🩹</h1>
+        <h1>Quiz do Idoso 🐼❤️‍🩹</h1>
         <p class="question">Qual o artista da nossa música oficial?</p>
 
         <div class="options">
@@ -128,7 +175,7 @@
         }
 
         function nextStep() {
-            window.location.href = "pergunta-3.html"; // Altere para a próxima etapa correta
+            window.location.href = "pergunta-3.html"; 
         }
     </script>
 </body>
