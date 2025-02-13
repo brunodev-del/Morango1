@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresa - 3 Meses</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+    
+        body {
+            font-family: "Jersey 15", serif;
+            font-weight: 400;
+            font-style: normal;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(241, 186, 205);
+            margin: 0;
+        }
+        .login-container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .input-container {
+            position: relative;
+            width: 100%;
+            margin: 10px 0;
+        }
+        .input-container input {
+            width: 100%; /* Agora ocupa toda a largura do container */
+            padding: 10px 40px; /* Padding maior para acomodar os ícones */
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .input-container .icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: gray;
+        }
+        .input-container .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: gray;
+        }
+        button {
+            font-family: "Jersey 15", serif;
+            font-weight: 400;
+            font-style: normal;
+            background-color: rgb(241, 186, 205);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: rgb(221, 166, 185);
+        }
+        .error-message {
+            font-family: "Jersey 15", serif;
+            font-weight: 400;
+            font-style: normal;
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1 style="color: rgb(255, 190, 219)">Bem-vindo(a)</h1>
+        <img src="./imagens/chat.png" alt="Ícone de chat" style="width: 100px; height: auto; display: block; margin: 10px auto;">
+        <img src="./imagens/morango.png" alt="Ícone de morango" style="width: 100px; height: auto; display: block; margin: 10px auto;">
+
+        <div class="input-container">
+            <i class="fas fa-user icon"></i>
+            <input type="text" id="username" placeholder="Usuário">
+        </div>
+
+        <div class="input-container">
+            <i class="fas fa-lock icon"></i>
+            <input type="password" id="password" placeholder="Senha">
+            <i class="fas fa-eye toggle-password" onclick="togglePassword()"></i>
+        </div>
+
+        <button onclick="checkLogin()">Entrar</button>
+        <p class="error-message" id="error-message">Usuário ou senha incorretos!</p>
+    </div>
+
+    <script>
+        function checkLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === "Morango" && password === "euteamo123") {
+                window.location.href = "surpresa.html";
+            } else {
+                document.getElementById("error-message").style.display = "block";
+            }
+        }
+
+        function togglePassword() {
+            const passwordInput = document.getElementById("password");
+            const eyeIcon = document.querySelector(".toggle-password");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.classList.remove("fa-eye");
+                eyeIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.classList.remove("fa-eye-slash");
+                eyeIcon.classList.add("fa-eye");
+            }
+        }
+    </script>
+</body>
+</html>

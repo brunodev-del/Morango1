@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Enigma do Pinterest</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+
+        body {
+            font-family: "Jersey 15", serif;
+            font-weight: 400;
+            font-style: normal;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(241, 186, 205);
+            margin: 0;
+            text-align: center;
+        }
+        .enigma-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            color: rgb(255, 190, 219);
+            font-size: 22px;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        input {
+            font-family: "Jersey 15", serif;
+            font-size: 16px;
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid rgb(241, 186, 205);
+            border-radius: 5px;
+            text-align: center;
+        }
+        .button {
+            font-family: "Jersey 15", serif;
+            font-weight: 400;
+            font-style: normal;
+            background-color: rgb(241, 186, 205);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: rgb(221, 166, 185);
+        }
+        .feedback {
+            display: none;
+            font-size: 16px;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgb(255, 182, 182);
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="enigma-container">
+        <h1>Enigma do Pinterest 🧩</h1>
+        <p>"Onde as memórias ganham cores, e formas  
+        se transformam em inspiração, cada imagem conta uma história...  
+        A pista está em <strong>'Doces Memórias'</strong>."</p> 
+        <p>(Guarde as pistas que achar para a próxima etapa)</p>
+        <p>Onde você esteve?</p>
+        <input type="text" id="answer" placeholder="Lugar">
+        <button class="button" onclick="checkAnswer()">Confirmar</button>
+
+        <p id="feedback" class="feedback"></p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const answer = document.getElementById("answer").value.trim().toLowerCase();
+            const feedback = document.getElementById("feedback");
+
+            if (answer === "doces memórias" || answer === "pinterest") {
+                window.location.href = "login.html"; // Redireciona sem exibir mensagem verde
+            } else {
+                feedback.textContent = "Pense mais um pouco, Morango. 🧐";
+                feedback.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

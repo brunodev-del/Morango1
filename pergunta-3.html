@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz do Idoso🐼❤️‍🩹</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+
+        body {
+            font-family: "Jersey 15", serif;
+            font-weight: 400;
+            font-style: normal;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(241, 186, 205);
+            margin: 0;
+            text-align: center;
+        }
+        .quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            color: rgb(255, 190, 219);
+            font-size: 22px;
+        }
+        .question {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .options button {
+            font-family: "Jersey 15", serif;
+            font-weight: 400;
+            font-style: normal;
+            background-color: white;
+            color: rgb(241, 186, 205);
+            border: 2px solid rgb(241, 186, 205);
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 25px;
+            width: 100%;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        .options button:hover {
+            background-color: rgb(241, 186, 205);
+            color: white;
+        }
+        .feedback {
+            display: none;
+            font-size: 16px;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .correct {
+            background-color: rgb(144, 238, 144);
+            color: green;
+        }
+        .incorrect {
+            background-color: rgb(255, 182, 182);
+            color: red;
+        }
+        .next-button {
+            font-family: "Jersey 15", serif;
+            font-weight: 400;
+            font-style: normal;
+            display: none;
+            background-color: rgb(241, 186, 205);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .next-button:hover {
+            background-color: rgb(221, 166, 185);
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz do Idoso🐼❤️‍🩹</h1>
+        <p class="question">Onde foi nosso primeiro beijo?</p>
+
+        <div class="options">
+            <button onclick="checkAnswer(this, false)">Casa da Lilian</button>
+            <button onclick="checkSpecialAnswer()">Sua casa</button>
+            <button onclick="checkAnswer(this, true)">Escola</button>
+        </div>
+
+        <p id="feedback" class="feedback"></p>
+        <button id="next" class="next-button" onclick="nextStep()">Próxima etapa</button>
+    </div>
+
+    <script>
+        function checkAnswer(button, isCorrect) {
+            const feedback = document.getElementById("feedback");
+            const nextButton = document.getElementById("next");
+
+            if (isCorrect) {
+                feedback.textContent = "Acertou! Você sabe bem. 🍓";
+                feedback.className = "feedback correct";
+                nextButton.style.display = "block";
+            } else {
+                feedback.textContent = "Ops! Acho que não era essa, Morango. 😢";
+                feedback.className = "feedback incorrect";
+            }
+
+            feedback.style.display = "block";
+        }
+
+        function checkSpecialAnswer() {
+            const feedback = document.getElementById("feedback");
+            feedback.textContent = "Bem que poderia, né? 💕";
+            feedback.className = "feedback incorrect";
+            feedback.style.display = "block";
+        }
+
+        function nextStep() {
+            window.location.href = "enigma.html"; // Altere para a próxima etapa correta
+        }
+    </script>
+</body>
+</html>
